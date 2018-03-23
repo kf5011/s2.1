@@ -1,26 +1,35 @@
 #include <mbed.h>
+#include "components.h"
 
-DigitalOut   red(LED_RED);
-DigitalOut green(LED_GREEN);
+AssignmentBoard board;
 
-void on(void)
+LED red(board.K64F_RED_LED);
+LED blue(board.K64F_BLUE_LED);
+
+void turnOnLED(void)
 {
-    red.write(0);
+    red.on();
     puts("rising 0->1");
 }
-void off(void)
+
+void turnOffLED(void)
 {
-    red.write(1);
+    red.off();
     puts("falling 1->0");
 }
 
-int main() {
-    InterruptIn  left(SW2);
-    InterruptIn right(SW3);
+int main()
+{
+    puts("Reached");
+    
+    InterruptIn  left(board.K64F_SW2);
+    InterruptIn right(board.K64F_SW3);
 
-    left.rise(on);
-    right.fall(off);
-    while(1) {
+    left.rise(turnOnLED);
+    right.fall(turnOffLED);
+
+    while(1)
+    {
         /* GNDN */
     }
 }
