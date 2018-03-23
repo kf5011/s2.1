@@ -8,10 +8,12 @@ class Switch
 {
   private:
     DigitalIn pin;
+    PinName pinName;
     bool usesPullUpResistor;
 
   public:
     Switch(PinName pinName, bool usesPullUpResistor);
+    PinName getPinName();
     bool isPressed();
 
 };

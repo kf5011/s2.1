@@ -4,8 +4,13 @@
 
 Switch::Switch(PinName pinName, bool usesPullUpResistor) : pin(pinName)
 {
-
   Switch::usesPullUpResistor = usesPullUpResistor;
+  Switch::pinName = pinName;
+}
+
+PinName Switch::getPinName()
+{
+  return pinName;
 }
 
 bool Switch::isPressed()

@@ -8,9 +8,11 @@ class LED
 {
   private:
     DigitalOut pin;
+    PinName pinName;
 
   public:
     LED(PinName pinName);
+    PinName getPinName();
     void on();
     void off();
 };

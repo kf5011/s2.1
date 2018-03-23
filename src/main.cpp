@@ -4,15 +4,16 @@
 AssignmentBoard board;
 
 LED red(board.K64F_RED_LED);
+
 LED blue(board.K64F_BLUE_LED);
 
-void turnOnLED(void)
+void turnOnLED()
 {
     red.on();
     puts("rising 0->1");
 }
 
-void turnOffLED(void)
+void turnOffLED()
 {
     red.off();
     puts("falling 1->0");
@@ -20,10 +21,13 @@ void turnOffLED(void)
 
 int main()
 {
-    puts("Reached");
-    
-    InterruptIn  left(board.K64F_SW2);
-    InterruptIn right(board.K64F_SW3);
+    blue.on();
+
+    Switch switchA(board.K64F_SW2, true);
+    Switch switchB(board.K64F_SW3, true);
+
+    InterruptIn  left(switchA.getPinName());
+    InterruptIn right(switchB.getPinName());
 
     left.rise(turnOnLED);
     right.fall(turnOffLED);

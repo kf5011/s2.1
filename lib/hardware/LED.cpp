@@ -3,6 +3,12 @@
 
 LED::LED(PinName pinName) : pin(pinName,1)
 {
+  LED::pinName = pinName;
+}
+
+PinName LED::getPinName()
+{
+  return pinName;
 }
 
 void LED::on()

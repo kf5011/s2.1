@@ -12,8 +12,8 @@ class AssignmentBoard
     static const PinName K64F_GREEN_LED;
     static const PinName K64F_BLUE_LED;
     //Switches
-    static const PinName K64F_SW2;
-    static const PinName K64F_SW3;
+    static const PinName K64F_SW2; //Uses pull up resistor.
+    static const PinName K64F_SW3; //Uses pull up resistor.
 
     //Constant declarations (Application Shield).
 
